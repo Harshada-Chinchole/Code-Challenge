@@ -38,28 +38,15 @@ A proxy has been set up in `stocks` to proxy calls to `locahost:3333` which is t
 
 [Original problem statement](https://github.com/tmobile/developer-kata/blob/master/puzzles/web-api/stock-broker.md)
 
-### Task 1
+### Task 3
 
-Please provide a short code review of the base `master` branch:
+```
+Business requirement: As a user I want to choose custom dates
+so that I can view the trends within a specific period of time.
+```
 
-#### Task 1-A
-1. What is done well?
-- Use of FormBuilder, FormGroup, Validators from @angular/forms in stock component.
-- Use of angular material library which provides set of reusable and accessible component.
-- Use of ngrx for state management.
-- Use of google chart which is open source library and developer can easily use common predefined functionality.
+_**Implement this feature and make a PR from the branch `feat_custom_dates` to `master`.**_
 
-2. What would you change?
-- Instead of any we can use appropriate data types.
-- We can add access specifiers for functions and variables.
-- We will use async pipe of ngrx to pass observable data from stock component to chart component or we have to unsubscribe subscription in chart component.
-- We can use constants instead of hard coded data or we can use mock data wherever required.
-- Unit test cases should run without fail and should cover all functions/statements.
-- "Favorite time period" is required field, will show error message if not selected.
-- We can disable "Go" button if form is invalid.
+> Use the material date-picker component
 
-3. Are there any code smells or problematic implementations?
-- Yes, Added API key but chart is not getting displayed because data in chart is empty so used async pipe of ngrx to pass observable data from stock component to chart component.
-    Also added error message if "Favorite time period" is not selected.
-
-> Make a PR to fix at least one of the issues that you identify
+> We need two date-pickers: "from" and "to". The date-pickers should not allow selection of dates after the current day. "to" cannot be before "from" (selecting an invalid range should make both dates the same value)

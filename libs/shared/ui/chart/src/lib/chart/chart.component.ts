@@ -3,6 +3,7 @@ import {
   Input,
   OnInit
 } from '@angular/core';
+import { CHART_DATA_MOCK } from '../chart-constants';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -23,12 +24,6 @@ export class ChartComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.chart = {
-      title: '',
-      type: 'LineChart',
-      data: [],
-      columnNames: ['period', 'close'],
-      options: { title: `Stock price`, width: '600', height: '400' }
-    };
+    this.chart = CHART_DATA_MOCK;
   }
 }
