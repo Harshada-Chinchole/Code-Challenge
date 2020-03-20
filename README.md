@@ -38,28 +38,14 @@ A proxy has been set up in `stocks` to proxy calls to `locahost:3333` which is t
 
 [Original problem statement](https://github.com/tmobile/developer-kata/blob/master/puzzles/web-api/stock-broker.md)
 
-### Task 1
+### Task 4
 
-Please provide a short code review of the base `master` branch:
+```
+Technical requirement: the server `stocks-api` should be used as a proxy
+to make calls. Calls should be cached in memory to avoid querying for the
+same data. If a query is not in cache we should call-through to the API.
+```
 
-#### Task 1-A
-1. What is done well?
-- Use of FormBuilder, FormGroup, Validators from @angular/forms in stock component.
-- Use of angular material library which provides set of reusable and accessible component.
-- Use of ngrx for state management.
-- Use of google chart which is open source library and developer can easily use common predefined functionality.
+_**Implement the solution and make a PR from the branch `feat_proxy_server` to `master`**_
 
-2. What would you change?
-- Instead of any we can use appropriate data types.
-- We can add access specifiers for functions and variables.
-- We will use async pipe of ngrx to pass observable data from stock component to chart component or we have to unsubscribe subscription in chart component.
-- We can use constants instead of hard coded data or we can use mock data wherever required.
-- Unit test cases should run without fail and should cover all functions/statements.
-- "Favorite time period" is required field, will show error message if not selected.
-- We can disable "Go" button if form is invalid.
-
-3. Are there any code smells or problematic implementations?
-- Yes, Added API key but chart is not getting displayed because data in chart is empty so used async pipe of ngrx to pass observable data from stock component to chart component.
-    Also added error message if "Favorite time period" is not selected.
-
-> Make a PR to fix at least one of the issues that you identify
+> It is important to get the implementation working before trying to organize and clean it up.
