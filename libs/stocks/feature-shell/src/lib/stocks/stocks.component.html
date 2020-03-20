@@ -23,23 +23,33 @@
   </mat-form-field>
 
   <mat-form-field>
-    <mat-label aria-label="Time period">Favorite time period</mat-label>
-    <mat-select id="select-period" aria-label="Period select box" name="period"
-    role="listbox" formControlName="period">
-      <mat-option role="option" aria-owns="select-period" aria-label="Period option"
-        *ngFor="let timePeriod of timePeriods"
-        [value]="timePeriod.value"
-      >
-        {{ timePeriod.viewValue }}
-      </mat-option>
-    </mat-select>
+    <mat-label>Favorite time period(Start Date)</mat-label>
+    <input matInput [matDatepicker]="startDate" [max]="maxDate" (click)="startDate.open()" formControlName="startDate">
+    <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+    <mat-datepicker #startDate></mat-datepicker>
     <mat-error
-    ><span for="period"
+    ><span
       *ngIf="
-        !stockPickerForm.get('period').valid &&
-        stockPickerForm.get('period').touched
+        !stockPickerForm.get('startDate').valid &&
+        stockPickerForm.get('startDate').touched
       "
-      >Please select a period</span
+      >Please select a Start date</span
+    >
+  </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Favorite time period(End Date)</mat-label>
+    <input matInput [matDatepicker]="endDate" [max]="maxDate" (click)="endDate.open()" formControlName="endDate">
+    <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+    <mat-datepicker #endDate></mat-datepicker>
+    <mat-error
+    ><span
+      *ngIf="
+        !stockPickerForm.get('endDate').valid &&
+        stockPickerForm.get('endDate').touched
+      "
+      >Please select a End date</span
     >
   </mat-error>
   </mat-form-field>
