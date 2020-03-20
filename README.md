@@ -44,51 +44,22 @@ Please provide a short code review of the base `master` branch:
 
 #### Task 1-A
 1. What is done well?
+- Use of FormBuilder, FormGroup, Validators from @angular/forms in stock component.
+- Use of angular material library which provides set of reusable and accessible component.
+- Use of ngrx for state management.
+- Use of google chart which is open source library and developer can easily use common predefined functionality.
+
 2. What would you change?
+- Instead of any we can use appropriate data types.
+- We can add access specifiers for functions and variables.
+- We will use async pipe of ngrx to pass observable data from stock component to chart component or we have to unsubscribe subscription in chart component.
+- We can use constants instead of hard coded data or we can use mock data wherever required.
+- Unit test cases should run without fail and should cover all functions/statements.
+- "Favorite time period" is required field, will show error message if not selected.
+- We can disable "Go" button if form is invalid.
+
 3. Are there any code smells or problematic implementations?
+- Yes, Added API key but chart is not getting displayed because data in chart is empty so used async pipe of ngrx to pass observable data from stock component to chart component.
+    Also added error message if "Favorite time period" is not selected.
 
 > Make a PR to fix at least one of the issues that you identify
-
-#### Task 1-B
-
-[Accessability](https://www.w3.org/WAI/GL/WCAG20/) is an important feature of all public facing websites.  
-
-> Make a PR to add accessability features to the web application
-
-
-### Task 2
-
-```
-Business requirement: As a user I should be able to type into
-the symbol field and make a valid time-frame selection so that
-the graph is refreshed automatically without needing to click a button.
-```
-
-_**Make a PR from the branch `feat_stock_typeahead` to `master` and provide a code review on this PR**_
-
-> Add comments to the PR. Focus on all items that you can see - this is a hypothetical example but let's treat it as a critical application. Then present these changes as another commit on the PR.
-
-### Task 3
-
-```
-Business requirement: As a user I want to choose custom dates
-so that I can view the trends within a specific period of time.
-```
-
-_**Implement this feature and make a PR from the branch `feat_custom_dates` to `master`.**_
-
-> Use the material date-picker component
-
-> We need two date-pickers: "from" and "to". The date-pickers should not allow selection of dates after the current day. "to" cannot be before "from" (selecting an invalid range should make both dates the same value)
-
-### Task 4
-
-```
-Technical requirement: the server `stocks-api` should be used as a proxy
-to make calls. Calls should be cached in memory to avoid querying for the
-same data. If a query is not in cache we should call-through to the API.
-```
-
-_**Implement the solution and make a PR from the branch `feat_proxy_server` to `master`**_
-
-> It is important to get the implementation working before trying to organize and clean it up.
